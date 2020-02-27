@@ -1,0 +1,6 @@
+@import '~antd/dist/antd.css';
+
+.AppContent {
+  text-align: center;
+  padding: 30px;
+}
