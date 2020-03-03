@@ -3,6 +3,7 @@ import {Button, Table, Popconfirm, Tag} from 'antd';
 import axios from 'axios';
 import './App.css';
 import './table.css';
+import UserTable from './UserTable';
 
 class App extends React.Component {
 
@@ -116,7 +117,7 @@ class App extends React.Component {
                 <div className="table-operations">
                     <Button onClick={this.onRefresh} type="primary" icon="reload">Refresh</Button>
                 </div>
-                <Table columns={columns} dataSource={data} onChange={this.handleChange}/>
+                <UserTable />
             </div>
         );
     }
