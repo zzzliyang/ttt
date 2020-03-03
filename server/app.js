@@ -18,7 +18,8 @@ types.setTypeParser(TYPE_DATESTAMP, date => date);
 
 const app = express();
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '/../client/user-portal/build')));
+app.use(express.static(path.join(__dirname, '/../client/admin-portal/build')));
 
 process.on('uncaughtException', function (err) {
   console.log('Caught exception: ', err);
@@ -55,9 +56,17 @@ app.get('/api/pnl/alldate', cors(), (req,res) => {
   })
 });
 
+app.get('/user', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/../client/user-portal/build/index.html'));
+});
+
+app.get('/admin', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/../client/admin-portal/build/index.html'));
+});
+
 // Handles any requests that don't match the ones above
 app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'../client/build/index.html'));
+    res.sendFile(path.join(__dirname+'../client/user-portal/build/index.html'));
 });
 
 const port = process.env.PORT || 5000;
