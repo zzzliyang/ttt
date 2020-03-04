@@ -70,9 +70,11 @@ class App extends React.Component {
                 key: 'status',
                 render: status => {
                     let color = 'grey';
-                    if (status === 'IMPORTANT') {
+                    if (status === 'Confirmed') {
                         color = 'volcano';
-                    } else if (status === 'PENDING') {
+                    } else if (status === 'Suspected') {
+                        color = 'orange';
+                    } else if (status === 'Healthy') {
                         color = 'green';
                     }
                     return (
@@ -115,7 +117,7 @@ class App extends React.Component {
         return (
             <div>
                 <div className="table-operations">
-                    <Button onClick={this.onRefresh} type="primary" icon="reload">Refresh</Button>
+                    <Button onClick={this.onRefresh} type="primary">Refresh</Button>
                 </div>
                 <UserTable />
             </div>

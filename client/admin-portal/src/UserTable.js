@@ -9,7 +9,7 @@ data.push({
     name: 'Zhang Yang',
     phone: 98765432,
     email: 'test@nus.edu',
-    status: 'IMPORTANT',
+    status: 'Suspected',
 });
 }
 for (let i = 4; i < 7; ++i) {
@@ -18,7 +18,7 @@ data.push({
     name: 'Zhang Yang',
     phone: 98765432,
     email: 'test@nus.edu',
-    status: 'PENDING',
+    status: 'Healthy',
 });
 }
 
@@ -99,10 +99,12 @@ class UserTable extends React.Component {
                 key: 'status',
                 render: status => {
                     let color = 'grey';
-                    if (status === 'IMPORTANT') {
-                        color = 'volcano';
-                    } else if (status === 'PENDING') {
-                        color = 'green';
+                    if (status === 'Confirmed') {
+                      color = 'volcano';
+                    } else if (status === 'Suspected') {
+                      color = 'orange';
+                    } else if (status === 'Healthy') {
+                      color = 'green';
                     }
                     return (
                         <span>

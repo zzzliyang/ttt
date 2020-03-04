@@ -1,21 +1,22 @@
 import React from 'react';
 import { Steps, Button, message } from 'antd';
 import FormStep1 from './FormStep1';
+import FormStep2 from './FormStep2';
 import '../css/FormSteps.css';
 
 const { Step } = Steps;
 
 const steps = [
   {
-    title: 'First',
+    title: 'Step 1',
     content: 'First-content',
   },
   {
-    title: 'Second',
+    title: 'Step 2',
     content: 'Second-content',
   },
   {
-    title: 'Last',
+    title: 'Step 3',
     content: 'Last-content',
   },
 ];
@@ -40,6 +41,7 @@ class FormSteps extends React.Component {
 
   render() {
     const { current } = this.state;
+    const step = current==0 ? (<FormStep1/>) : current==1 ? (<FormStep2/>) : FormStep2;
     return (
       <div className="form-steps">
         <Steps current={current}>
@@ -47,7 +49,7 @@ class FormSteps extends React.Component {
             <Step key={item.title} title={item.title} />
           ))}
         </Steps>
-        <div className="steps-content">{current == 0 && <FormStep1/>}</div>
+        <div className="steps-content">{step}</div>
         <div className="steps-action">
           {current < steps.length - 1 && (
             <Button type="primary" onClick={() => this.next()}>
