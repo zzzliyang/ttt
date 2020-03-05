@@ -1,31 +1,31 @@
-import React from 'react';
-import { Steps, Button, message } from 'antd';
-import FormStep1 from './FormStep1';
-import FormStep2 from './FormStep2';
-import '../css/FormSteps.css';
+import React from "react";
+import { Steps, Button, message } from "antd";
+import FormStep1 from "./FormStep1";
+import FormStep2 from "./FormStep2";
+import "../css/FormSteps.css";
 
 const { Step } = Steps;
 
 const steps = [
   {
-    title: 'Step 1',
-    content: 'First-content',
+    title: "Step 1",
+    content: "First-content"
   },
   {
-    title: 'Step 2',
-    content: 'Second-content',
+    title: "Step 2",
+    content: "Second-content"
   },
   {
-    title: 'Step 3',
-    content: 'Last-content',
-  },
+    title: "Step 3",
+    content: "Last-content"
+  }
 ];
 
 class FormSteps extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      current: 0,
+      current: 0
     };
   }
 
@@ -41,7 +41,8 @@ class FormSteps extends React.Component {
 
   render() {
     const { current } = this.state;
-    const step = current==0 ? (<FormStep1/>) : current==1 ? (<FormStep2/>) : FormStep2;
+    const step =
+      current == 0 ? <FormStep1 /> : current == 1 ? <FormStep2 /> : FormStep2;
     return (
       <div className="form-steps">
         <Steps current={current}>
@@ -57,7 +58,10 @@ class FormSteps extends React.Component {
             </Button>
           )}
           {current === steps.length - 1 && (
-            <Button type="primary" onClick={() => message.success('Processing complete!')}>
+            <Button
+              type="primary"
+              onClick={() => message.success("Processing complete!")}
+            >
               Done
             </Button>
           )}

@@ -1,28 +1,28 @@
-import React from 'react';
-import { Form, Input, Button } from 'antd';
-import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-import '../css/FormStep1.css';
+import React from "react";
+import { Form, Input, Button } from "antd";
+import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
+import "../css/FormStep1.css";
 
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
-    sm: { span: 4 },
+    sm: { span: 4 }
   },
   wrapperCol: {
     xs: { span: 24 },
-    sm: { span: 20 },
-  },
+    sm: { span: 20 }
+  }
 };
 const formItemLayoutWithOutLabel = {
   wrapperCol: {
     xs: { span: 24, offset: 0 },
-    sm: { span: 20, offset: 4 },
-  },
+    sm: { span: 20, offset: 4 }
+  }
 };
 
 const FormStep2 = () => {
   const onFinish = values => {
-    console.log('Received values of form:', values);
+    console.log("Received values of form:", values);
   };
 
   return (
@@ -33,24 +33,29 @@ const FormStep2 = () => {
             <div>
               {fields.map((field, index) => (
                 <Form.Item
-                  {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
-                  label={index === 0 ? 'Locations' : ''}
+                  {...(index === 0
+                    ? formItemLayout
+                    : formItemLayoutWithOutLabel)}
+                  label={index === 0 ? "Locations" : ""}
                   required={false}
                   key={field.key}
                 >
                   <Form.Item
                     {...field}
-                    validateTrigger={['onChange', 'onBlur']}
+                    validateTrigger={["onChange", "onBlur"]}
                     rules={[
                       {
                         required: true,
                         whitespace: true,
-                        message: "Please input address or delete this field.",
-                      },
+                        message: "Please input address or delete this field."
+                      }
                     ]}
                     noStyle
                   >
-                    <Input placeholder="Locations visited" style={{ width: '60%', marginRight: 8 }} />
+                    <Input
+                      placeholder="Locations visited"
+                      style={{ width: "60%", marginRight: 8 }}
+                    />
                   </Form.Item>
                   {fields.length > 1 ? (
                     <MinusCircleOutlined
@@ -68,7 +73,7 @@ const FormStep2 = () => {
                   onClick={() => {
                     add();
                   }}
-                  style={{ width: '60%' }}
+                  style={{ width: "60%" }}
                 >
                   <PlusOutlined /> Add Location
                 </Button>
